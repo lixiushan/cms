@@ -1,0 +1,51 @@
+<template>
+  <div class="container">
+    <!-- 头部 -->
+    <mt-header fixed title="黑马程序员 | SH17">
+        <router-link to="/" slot="left">
+            <mt-button  icon="back">返回</mt-button>
+        </router-link>
+    </mt-header>
+
+    <!-- 路由出口 -->
+    <router-view class="content"></router-view>
+
+    <!-- 底部 -->
+    <nav class="mui-bar mui-bar-tab">
+        <router-link class="mui-tab-item" to="/home" @click.native="goPage('/home')">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </router-link>
+        <router-link class="mui-tab-item" to="/vip" @click.native="goPage('/vip')">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">会员</span>
+        </router-link>
+        <router-link class="mui-tab-item" to="/cart" @click.native="goPage('/cart')">
+            <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">{{$store.getters.update}}</span></span>
+            <span class="mui-tab-label">购物车</span>
+        </router-link>
+        <router-link class="mui-tab-item" to="/search" @click.native="goPage('/search')">
+            <span class="mui-icon mui-icon-search"></span>
+            <span class="mui-tab-label">搜索</span>
+        </router-link>
+	</nav>
+  </div>
+</template>
+
+<script>
+export default {
+    methods: {
+        goPage(path){
+            this.$router.push(path);
+        },
+
+    },
+
+}
+</script>
+
+<style>
+    .content{
+        padding: 40px 0 50px 0;
+    }
+</style>
